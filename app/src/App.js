@@ -3,6 +3,9 @@ import './App.css';
 import { connect } from "react-redux";
 import { fetchBooks } from "./actions/bookAction";
 
+//Redux app using OpenLibrary API from archive.org
+// by Corey M. Knoettgen
+
 class App extends Component {
   // Constructor(props){  
   //   super(props);  
@@ -21,7 +24,8 @@ class App extends Component {
         ) : (
           <div className="App-intro">
             {this.props.books.map(book => {
-              return <img key={book} src={book} />;
+              console.log(book);
+              return <img key={book} src={book.thumbnail_url} alt="book cover" />;
             })}
           </div>
         )}

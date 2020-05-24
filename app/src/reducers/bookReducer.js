@@ -8,7 +8,7 @@ export const bookReducer = (state = initialState, action) => {
       return Object.assign({}, state, { fetchingBooks: true }); // if we're fetching simply trigger the boolean!
     case BOOK_FETCH_SUCCESS:
       return Object.assign({}, state, {
-        books: [...state.books, ...action.payload], // if our promise was successfull, build out the dogs array.
+        books: [...state.books, action.payload], // if our promise was successfull, build out the dogs array.
         fetchingBooks: false // also, set our boolean to false, because we're no longer fetching
       });
     case BOOK_FETCH_ERROR:

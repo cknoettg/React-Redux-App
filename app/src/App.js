@@ -24,7 +24,6 @@ class App extends Component {
         ) : (
           <div className="App-intro">
             {this.props.books.map(book => {
-              console.log(book);
             return <p key={book}>{book}</p>;
               //return <img key={book} src={book.thumbnail_url} alt="book cover" />;
             })}

@@ -1,20 +1,25 @@
-import { FETCHING_BOOKS, BOOK_FETCH_SUCCESS, BOOK_FETCH_ERROR } from "../actions/bookAction";
+import { FETCHING_BOOKS, BOOK_FETCH_SUCCESS, ISBN_SUCCESS, BOOK_FETCH_ERROR } from "../actions/bookAction";
 
-const initialState = { books: [], fetchingBooks: false, error: "" };
+const initialState = { books: [], isbns: [], fetchingBooks: false, error: "" };
 
 export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_BOOKS:
-      return Object.assign({}, state, { fetchingBooks: true }); // if we're fetching simply trigger the boolean!
+      return Object.assign({}, state, { fetchingBooks: true });
     case BOOK_FETCH_SUCCESS:
       return Object.assign({}, state, {
-        books: [...state.books, action.payload], // if our promise was successfull, build out the dogs array.
-        fetchingBooks: false // also, set our boolean to false, because we're no longer fetching
+        books: [...state.books, action.payload],       
+        fetchingBooks: false
+      });
+    case ISBN_SUCCESS:
+      return Object.assign({}, state, {
+      isbns: [...state.isbns, action.payload],
+      fetchingBooks: false
       });
     case BOOK_FETCH_ERROR:
       return Object.assign({}, state, {
-        fetchingBooks: false, // we're also no longer fetching here so set the boolean to false
-        error: "Error fetching books" // now we're getting an error back, set the error as we'd see fit
+        fetchingBooks: false, 
+        error: "Error fetching books"
       });
     default:
       return state;

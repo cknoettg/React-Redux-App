@@ -1,6 +1,6 @@
 import { FETCHING_BOOKS, BOOK_FETCH_SUCCESS, ISBN_SUCCESS, BOOK_FETCH_ERROR } from "../actions/bookAction";
 
-const initialState = { books: [], isbns: [], fetchingBooks: false, error: "" };
+const initialState = { books: [], fetchingBooks: false, error: "" };
 
 export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,11 +11,6 @@ export const bookReducer = (state = initialState, action) => {
         books: [...state.books, ...action.payload],       
         fetchingBooks: false
       };
-    case ISBN_SUCCESS:
-      return {...state,
-      isbns: [...state.isbns],
-      fetchingBooks: false
-      };
     case BOOK_FETCH_ERROR:
       return {...state,
         fetchingBooks: false, 
@@ -25,7 +20,3 @@ export const bookReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-// fetching
-// feteched
-// errorFetching

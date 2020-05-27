@@ -3,7 +3,6 @@ import axios from "axios";
 export const FETCHING_BOOKS = "FETCHING_BOOKS";
 export const FETCHING_THUMBNAILS = "FETCHING_THUMBNAILS";
 export const BOOK_FETCH_SUCCESS = "BOOK_FETCH_SUCCESS";
-export const ISBN_SUCCESS = "ISBN_SUCCESS";
 export const BOOK_FETCH_ERROR = "BOOK_FETCH_ERROR";
 
 const Search = "search.json?subject=hackers&limit=10";
@@ -16,16 +15,9 @@ export const fetchBooks = () => {
       promise
         //grab first 10 titles by subject
         .then(response => {
-          console.log(response);
-          console.log(response.data.docs);
-          //const book_titles = response.data.docs.map(book=>book.title);
-          //const book_titles = response.data.docs.map(book=>book);
-          //const isbns = response.data.docs.map(book=>book.isbn[0]);
-          //console.log(book_titles);
-          //console.log(isbns);
-          //dispatch({ type: BOOK_FETCH_SUCCESS, payload: book_titles });
+          // console.log(response);
+          // console.log(response.data.docs);
           dispatch({ type: BOOK_FETCH_SUCCESS, payload: response.data.docs });
-          //dispatch({ type: ISBN_SUCCESS, payload: isbns });
         })
         .catch(err => {
           console.log(err);

@@ -7,9 +7,7 @@ import { fetchBooks } from "./actions/bookAction";
 // by Corey M. Knoettgen
 
 class App extends Component {
-  // Constructor(props){  
-  //   super(props);  
-  // } 
+  
   componentDidMount() {
     this.props.fetchBooks();
   }
@@ -26,8 +24,6 @@ class App extends Component {
             {this.props.books.map((book,index) => {
             console.log(book)
             return <p key={book}>{book.title_suggest}</p>
-            //<img src={book.thumbnail_url} alt="book cover" />
-              //return <img key={book} src={book.thumbnail_url} alt="book cover" />;
             })}
           </div>
         )}
@@ -39,10 +35,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    // our state machine is working for us based on fetching, success, and error. lets make sure our component knows about the state machine
-    books: state.books, // dogs for when we have the data!
-    error: state.error, // error for when we mispell something!
-    fetchingBooks: state.fetchingBooks // pending state, the fetching spinner or loading message etc. for when we're fetching!
+    books: state.books, 
+    error: state.error, 
+    fetchingBooks: state.fetchingBooks
   };
 };
 

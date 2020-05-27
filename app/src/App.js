@@ -21,9 +21,9 @@ class App extends Component {
           <h3>Hold tight, we're fetching your books...</h3>
         ) : (
           <div className="App-intro">
-            {this.props.books.map((book,index) => {
+            {this.props.books.map(book => {
             console.log(book)
-            return <p key={book}>{book.title_suggest}</p>
+            return <p key={book.title_suggest}>{book.title_suggest}</p>
             })}
           </div>
         )}

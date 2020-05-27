@@ -18,11 +18,14 @@ export const fetchBooks = () => {
         .then(response => {
           console.log(response);
           console.log(response.data.docs);
-          const book_titles = response.data.docs.map(book=>book.title);
-          const isbns = response.data.docs.map(book=>book.isbn[0]);
-          console.log(isbns);
-          dispatch({ type: BOOK_FETCH_SUCCESS, payload: book_titles });
-          dispatch({ type: ISBN_SUCCESS, payload: isbns });
+          //const book_titles = response.data.docs.map(book=>book.title);
+          //const book_titles = response.data.docs.map(book=>book);
+          //const isbns = response.data.docs.map(book=>book.isbn[0]);
+          //console.log(book_titles);
+          //console.log(isbns);
+          //dispatch({ type: BOOK_FETCH_SUCCESS, payload: book_titles });
+          dispatch({ type: BOOK_FETCH_SUCCESS, payload: response.data.docs });
+          //dispatch({ type: ISBN_SUCCESS, payload: isbns });
         })
         .catch(err => {
           console.log(err);

@@ -8,12 +8,12 @@ export const bookReducer = (state = initialState, action) => {
       return{...state, fetchingBooks: true };
     case BOOK_FETCH_SUCCESS:
       return {...state, 
-        books: [...state.books, action.payload],       
+        books: [...state.books, ...action.payload],       
         fetchingBooks: false
       };
     case ISBN_SUCCESS:
       return {...state,
-      isbns: [...state.isbns, action.payload],
+      isbns: [...state.isbns],
       fetchingBooks: false
       };
     case BOOK_FETCH_ERROR:
